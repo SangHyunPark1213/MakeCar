@@ -25,7 +25,7 @@ public class Bmi_calc {
 
         double bmi = wei / (hei * hei);
 //        System.out.println(bmi);
-        // 안녕하세요
+        //  안녕하세요
         // bmi 출력
         System.out.printf("당신의 BMI는 %.2f 입니다. \n", bmi);
 
