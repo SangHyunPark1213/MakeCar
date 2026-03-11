@@ -14,7 +14,6 @@ import java.util.Scanner;
 // 매개변수 : 외부에서 해당 메서드에 전달 하는 값 (없을 수 있음)
 // 구현분 : 실제 기능을 구현하는 부분 { } 블럭으로 표시함.
 public class MethodMain {
-    int k = 124; // 그럼 이건 전역인가
     public static void main(String[] args) {
         Sample sa = new Sample();
         System.out.println(sa.sum(10, 20));
@@ -51,11 +50,29 @@ public class MethodMain {
         // 매개변수의 개수를 모르는 경우
         System.out.println(ca.sum(1, 2, 3, 4, 5, 6));
 
-        {
-            int k = 100;
-            System.out.println(k);
-        }
+        // 입력 받은 수가 소수인지 아닌지 판별하는 메서드
+        Pnum pn = new Pnum();
 
+        pn.Pnum(sc.nextInt());
+
+
+    }
+}
+
+class Pnum{
+    void Pnum(int x){
+        if (x < 2){
+            System.out.println("소수가 아닙니다.");
+        } else if (x == 2) {
+            System.out.println("소수입니다");
+
+        } else if (x == 3) {
+            System.out.println("소수입니다");
+        }
+        else if ((x % 2) == 0 || (x % 3) == 0) {
+            System.out.println("소수가 아닙니다");
+        }
+        else System.out.println("소수입니다");
     }
 }
 
