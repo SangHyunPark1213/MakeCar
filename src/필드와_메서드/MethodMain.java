@@ -52,7 +52,7 @@ public class MethodMain {
 
         // 입력 받은 수가 소수인지 아닌지 판별하는 메서드
         Pnum pn = new Pnum();
-
+        System.out.print("소수 판별 정수 입력 : ");
         pn.Pnum(sc.nextInt());
 
 
