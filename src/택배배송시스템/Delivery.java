@@ -8,6 +8,7 @@ public class Delivery {
     Delivery(){
         this.company = "나으";
     }
+
 }
 class ParcelDelivery extends Delivery{
     @Override
