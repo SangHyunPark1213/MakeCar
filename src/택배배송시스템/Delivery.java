@@ -10,9 +10,9 @@ public class Delivery {
     }
 
 }
-class ParcelDelivery extends Delivery{
+class  ParcelDelivery extends Delivery{
     @Override
-    void deliver() {
+     void deliver() {
         System.out.println("택배 배송을 시작합니다. 2~3일 소요됩니다.");
     }
 }
