@@ -71,5 +71,5 @@ public abstract class Car {
         return (double) distance / speed * moveCnt * weatherCal;
     }
 ///
-    public abstract boolean setMode(boolean isOn);
+    public abstract void setMode(boolean isOn);
 }
