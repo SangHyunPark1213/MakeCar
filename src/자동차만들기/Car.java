@@ -70,6 +70,6 @@ public abstract class Car {
     double totalTime(int distance, int speed, int moveCnt, double weatherCal){
         return (double) distance / speed * moveCnt * weatherCal;
     }
-/// ///
+
     public abstract boolean setMode(boolean isOn);
 }
