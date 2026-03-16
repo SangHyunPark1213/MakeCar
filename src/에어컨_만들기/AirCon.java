@@ -20,13 +20,56 @@ import static java.lang.Thread.sleep;
 
 // 에어컨의 전체 상태 정보를 보여주는 메서드 만들기
 public class AirCon {
-    boolean power;
-    int setTemp;
-    int currentTemp;
-    boolean cooler;
-    boolean heater;
-    int windlevel;
+    private boolean power;
+    private int setTemp;
+    private int currentTemp;
+    private boolean cooler;
+    private boolean heater;
+    private int windlevel;
 
+    public boolean isPower() {
+        return power;
+    }
+
+    public void setPower(boolean power) {
+        this.power = power;
+    }
+
+    public int getSetTemp() {
+        return setTemp;
+    }
+
+    public void setSetTemp(int setTemp) {
+        this.setTemp = setTemp;
+    }
+
+    public int getCurrentTemp() {
+        return currentTemp;
+    }
+
+    public int getWindlevel() {
+        return windlevel;
+    }
+
+    public void setWindlevel(int windlevel) {
+        this.windlevel = windlevel;
+    }
+
+    public boolean isCooler() {
+        return cooler;
+    }
+
+    public void setCooler(boolean cooler) {
+        this.cooler = cooler;
+    }
+
+    public boolean isHeater() {
+        return heater;
+    }
+
+    public void setHeater(boolean heater) {
+        this.heater = heater;
+    }
 
     public AirCon() {
         final int[] mouthTempArr = {-5, 3, 10, 15, 22, 28, 32, 30, 24, 16, 8, 4};
@@ -43,12 +86,12 @@ public class AirCon {
 
     public void printAircon() {
         System.out.println("==== 현재 에어컨 정보 ====");
-        System.out.println("전원 " + (power ? "ON" : "OFF"));
-        System.out.println("현재 온도 : " + currentTemp);
-        System.out.println("설정 온도 : " + setTemp);
-        System.out.println("냉방 모드 : " + (cooler ? "ON" : "OFF"));
-        System.out.println("난방 모드 : " + (heater ? "ON" : "OFF"));
-        System.out.println("바람 세기 : " + windlevel);
+        System.out.println("전원 " + (isPower() ? "ON" : "OFF"));
+        System.out.println("현재 온도 : " + getCurrentTemp());
+        System.out.println("설정 온도 : " + getSetTemp());
+        System.out.println("냉방 모드 : " + (isCooler() ? "ON" : "OFF"));
+        System.out.println("난방 모드 : " + (isHeater() ? "ON" : "OFF"));
+        System.out.println("바람 세기 : " + getWindlevel());
     }
 
     // 에어컨 동작 메서드
@@ -69,15 +112,15 @@ public class AirCon {
                     changeTemp = true;
                 }
                 if (changeTemp) { // 온도를 변경해야 할 조건, 1단 60초, 2단 30초, 3단 20초
-                    if (cooler) setCurrentTemp(-1);
-                    if (heater) setCurrentTemp(1);
+                    if (isCooler()) setCurrentTemp(-1);
+                    if (isHeater()) setCurrentTemp(1);
                     printAircon(); // 현재 에어컨 상태를 출력
                     elapsedTime = 0; // 경과 시간을 초기화
                     changeTemp = false; // 온도 변경 조건을 false로 변경
                 }
-                if (currentTemp == setTemp) { // 현재 온도와 설정 온도가 같은 경우
+                if (getCurrentTemp() == getSetTemp()) { // 현재 온도와 설정 온도가 같은 경우
                     System.out.println("설정 온도에 도달하여 에어컨 작동을 종료합니다.");
-                    power = false;
+                    setPower(false);
                     break;
                 }
             }
@@ -90,21 +133,21 @@ public class AirCon {
     public void setAircon(Scanner sc) { // 스캐너 객체를 전달 받음
         System.out.println("현재 온도는 : " + currentTemp + "도 입니다.");
         System.out.print("온도 설정 : ");
-        setTemp = sc.nextInt();
+        setSetTemp(sc.nextInt());
         System.out.print("바람 세기 설정 : ");
-        windlevel = sc.nextInt();
+        setWindlevel(sc.nextInt());
 
         if (currentTemp > setTemp) { // 온도를 내려야하는 경우 (cooler)
             System.out.println("쿨러가 동작합니다.");
-            cooler = true;
-            heater = false;
+            setCooler(true);
+            setHeater(false);
         } else if (currentTemp < setTemp) {
             System.out.println("히터가 동작합니다");
-            heater = true;
-            cooler = false;
+            setHeater(true);
+            setCooler(false);
         } else {
-            cooler = false;
-            heater = false;
+            setCooler(false);
+            setHeater(false);
         }
     }
 
@@ -122,7 +165,7 @@ public class AirCon {
             case 2:
                 return 30; // 2단이면 30초
             case 3:
-                return 20; // 3단이면 20초
+                return 5; // 3단이면 3초 // 20초 너무 느림.
             default:
                 return 60;
         }

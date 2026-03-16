@@ -11,7 +11,7 @@ public class AirconMain {
         String onOff = sc.nextLine();
 
         if (onOff.equals("yes")){
-            myAirCon.power = true;
+            myAirCon.setPower(true);
             myAirCon.setAircon(sc);
             myAirCon.Operate();
         }else {
