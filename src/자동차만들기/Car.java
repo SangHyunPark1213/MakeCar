@@ -34,7 +34,7 @@ public abstract class Car {
     double totalCost(int distance, double moveCnt){
         double totalDistance = distance * moveCnt;
         double totalFuel = totalDistance / fuel_eco;
-        return totalFuel * 2000; // 총 비용 계산 = 총 연료 소모량 x 2000
+        return totalFuel * Fuel_Price.Fuel_Price; // 총 비용 계산 = 총 연료 소모량 x 연료 비용
     }
 
     String totalTime(int distance, int moveCnt, int weather){
