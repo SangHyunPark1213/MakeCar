@@ -2,7 +2,7 @@ package 자동차만들기;
 
 import java.util.Scanner;
 
-public abstract class Car {
+public abstract class Car implements Aircon, Audio, AutoPilot{
     Scanner sc = new Scanner(System.in);
     protected int speed;
     protected double fuel_eco;
@@ -87,7 +87,42 @@ public abstract class Car {
         }
 
     }
-}
+
+    @Override
+    public int setAC() {
+        System.out.print(getCarName()+": 에어컨 [1]ON [2]OFF : ");
+        int ac = sc.nextInt();
+        if(ac == 1) {
+            System.out.println(getCarName() + ": 에어컨 ON");
+            fuel_eco = fuel_eco * 0.95;
+        }
+        else System.out.println(getCarName() + ": 에어컨 OFF");
+        return ac;
+    }
+
+
+    @Override
+    public int setAD() {
+        System.out.print(getCarName()+": 오디오 [1]ON [2]OFF : ");
+        int ad = sc.nextInt();
+        if(ad == 1) {
+            System.out.println(getCarName() + ": 오디오 ON");
+        }
+        else System.out.println(getCarName() + ": 오디오 OFF");
+        return ad;
+    }
+    @Override
+    public int setAP() {
+        System.out.print(getCarName()+": 자율주행 [1]ON [2]OFF : ");
+        int ap = sc.nextInt();
+        if(ap == 1) {
+            System.out.println(getCarName() + ": 자율주행 ON");
+            speed = (int) (speed * 0.9);
+        }
+        else System.out.println(getCarName() + ": 자율주행 OFF");
+        return ap;
+    }
+    }
 
 class Fuel_Price { // 연료 비용을 따로 정의하고 변수는 상수로 입력
     final static int Fuel_Price = 2000;

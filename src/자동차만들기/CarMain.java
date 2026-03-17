@@ -15,6 +15,7 @@ public class CarMain {
         boolean isMode = inputCar.getOptionMode();
         int weather = inputCar.getWeather();
 
+
         switch (type) {
             case 1:
                 car = new SportsCar("스포츠카");
@@ -26,10 +27,13 @@ public class CarMain {
                 car = new Bus("버스");
                 break;
             default:
-                car = null;
-                break;
+                System.out.println("차량 선택을 잘못 하셨습니다.");
+                return;
         }
         car.setMode(isMode);
+        int setPower = car.setAC();
+        int setAudio = car.setAD();
+        int setAuto = car.setAP();
         int moveCnt = car.moveCnt(cnt);
         System.out.println("=======" + car.getCarName() + "=======");
         System.out.printf("총 비용 : %,d원\n", (int)car.totalCost(Distance[loc], moveCnt));
