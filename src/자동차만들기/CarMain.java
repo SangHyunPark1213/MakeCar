@@ -6,10 +6,8 @@ import static 자동차만들기.Fuel_Price.Distance;
 public class CarMain {
     public static void main(String[] args) {
 
-        Fuel_Price fuel_price = new Fuel_Price();
-
-        Car car = null;
-        Car inputCar = new Sedan("temp");
+        Car car;
+        Car inputCar = new Sedan("임시"); // 지역변수 inputCar 생성 (switch문에서 변경됨)
 
         int loc = inputCar.getLocation();
         int cnt = inputCar.getPassengerCnt();
@@ -19,13 +17,13 @@ public class CarMain {
 
         switch (type) {
             case 1:
-                car = new SportsCar("포르쉐 911");
+                car = new SportsCar("스포츠카");
                 break;
             case 2:
-                car = new Sedan("세단");
+                car = new Sedan("승용차");
                 break;
             case 3:
-                car = new Bus("관광버스");
+                car = new Bus("버스");
                 break;
             default:
                 car = null;
