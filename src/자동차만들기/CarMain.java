@@ -34,8 +34,8 @@ public class CarMain {
         car.setMode(isMode);
         int moveCnt = car.moveCnt(cnt);
         System.out.println("=======" + car.getCarName() + "=======");
-        System.out.println("총 비용 : " + car.totalCost(Distance[loc], moveCnt));
-        System.out.println("총 주유 횟수 : " + car.fuelCount(Distance[loc], moveCnt));
+        System.out.printf("총 비용 : %,d원\n", (int)car.totalCost(Distance[loc], moveCnt));
+        System.out.println("총 주유 횟수 : " + car.fuelCount(Distance[loc], moveCnt) + "회");
         System.out.println("총 이동 시간 : " + car.totalTime(Distance[loc], moveCnt, weather));
     }
 }
