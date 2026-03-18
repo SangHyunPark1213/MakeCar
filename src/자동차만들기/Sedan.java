@@ -9,5 +9,4 @@ public class Sedan extends Car{
         if (isOn) seat += 1;
     }
 
-
 }

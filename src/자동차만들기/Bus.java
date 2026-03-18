@@ -8,6 +8,4 @@ public class Bus extends Car{
         if(isOn) fuel_size += 30;
     }
 
-
-
 }
